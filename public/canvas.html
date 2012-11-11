@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+	<head>
+		<title>NodeCanvas</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1, minimum-scale=1, maximum-scale=1" />
+		<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src="http://nodecanvas.idreyn.c9.io/socket.io/socket.io.js"></script>
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js'></script>
+		<script type='text/javascript' src='shared.js'></script>
+		<script type='text/javascript' src='canvas.js'></script>
+		<script type='text/javascript' src='client.js'></script>
+		<link rel='stylesheet' type='text/css' href='style.css' />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+		<script type="text/javascript" src="js/colorpicker.js"></script>
+		<script type="text/javascript" src="interaction.js"></script>
+		<script type="text/javascript" src="misc.js"></script>
+	</head>
+	<body> 
+		<div class='main'>
+			<div class='toolbox'>
+				<div class='choose-color'></div>
+                <div class='buttonset buttonset-2'>
+                    <div class='button pen-button' img='res/pen.png'></div>
+                    <div class='button eraser-button' img='res/eraser.png'></div>
+                </div>
+                <div class='buttonset buttonset-5'>
+                    <div class='button size-button' val='1' img='res/size1.png'></div>
+                    <div class='button size-button' val='2' img='res/size2.png'></div>
+                    <div class='button size-button' val='3' img='res/size3.png'></div>
+                    <div class='button size-button' val='4' img='res/size4.png'></div>
+                    <div class='button size-button' val='5' img='res/size5.png'></div>
+                </div>
+                <div class='button save-button' img='res/camera.png'></div>
+                <div class='button text-button clear-button'>Clear</div>
+                <div class='status'></div>
+                <div class='button text-button chat-button'>Chat</div>
+			</div>
+            <div class='canvas-container'>
+                <div class='auth-modal'>
+                    <h1>Welcome to <span class='canvas-name'></span>!</h1>
+                    <p>Choose a nickname:</p>
+                    <input type='text' class='title-field nickname' value='' />
+                    <div class='auth-modal-password'>
+                        <p style='margin-top: 40px'>Enter the canvas password:</p>
+                        <input type='password' class='title-field password' value='' />
+                    </div>
+                    <div class='button big-button join-button'>Join!</div>
+                </div>
+                <div class='canvas-modal'>Please wait, loading your canvas...</div>
+		    	<canvas class='canvas' width='1000px' height='562px'></canvas>
+                <div class='chat-pane'>
+                    <div class='chat-pane-inner'>
+                
+                    </div>
+                    <div class='chat-pane-bottom'>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class='client-list'>
+
+                </div>
+            </div>
+		</div>
+	</body>
+</html>

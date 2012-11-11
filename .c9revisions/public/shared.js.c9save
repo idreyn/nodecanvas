@@ -1,0 +1,2 @@
+{"ts":1351469619440,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1351469662477,"patch":[[{"diffs":[[1,"var SERVER = 'nodecanvas.idreyn.c9.io'; \nvar PORT = 80;\n\n// Makes an ajax request\n\nfunction ajax(method,data,callback) {\n    data.method = method;\n    $.post('/ajax',data,function(d) {\n        if(callback) callback(d);\n    });\n}"]],"start1":0,"start2":0,"length1":0,"length2":228}]],"length":228,"saved":false}
