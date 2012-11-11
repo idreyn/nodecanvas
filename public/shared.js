@@ -1,4 +1,4 @@
-var SERVER = 'nodecanvas.idreyn.c9.io'; 
+var SERVER = window.location.host;
 var PORT = 80;
 
 // Makes an ajax request
