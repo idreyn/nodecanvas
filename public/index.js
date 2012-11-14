@@ -34,7 +34,6 @@ function getField(field) {
     var el;
     field = '.' + field;
     el = $(field);
-    console.log(el);
     if(el.val() == el.attr('def')) {
         return null;
     }

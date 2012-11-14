@@ -93,7 +93,6 @@ function ready() {
 
 function tryToJoin() {
     ajax('auth-room',{room:room, password: $('.password').val()},function(d) {
-        console.log(JSON.parse(d));
         if(JSON.parse(d)) {
             $('.auth-modal').hide();
             $('.canvas-modal').show();
@@ -395,8 +394,8 @@ function clientListIn(list) {
 // Makes an ajax request
 function ajax(method,data,callback) {
     data.method = method;
-    $.post('/ajax',data,function(d) {
-        if(callback) callback(d);
+    $.post('/ajax',data,function(d,r,o) {
+        if(callback) callback(o.responseText);
     });
 }
 

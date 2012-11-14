@@ -5,7 +5,7 @@ var PORT = 80;
 
 function ajax(method,data,callback) {
     data.method = method;
-    $.post('/ajax',data,function(d) {
-        if(callback) callback(d);
+    $.post('/ajax',data,function(d,r,o) {
+        if(callback) callback(o.responseText);
     });
 }

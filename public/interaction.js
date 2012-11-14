@@ -31,7 +31,6 @@ $(function() {
             setCurrent(this);
         });
         function setCurrent(button) {
-            console.log('setCurrent',button);
             if(button == current) return;
             $(this).val($(button).val());
             $(button).addClass('button-selected');
