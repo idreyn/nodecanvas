@@ -48,7 +48,7 @@ $(function() {
         setSize($(this).attr('val'));
     });
     $('.save-button').click(saveImage);
-    
+    $('.background-button').click(backgroundClick);
     // Make it pretty on iPad
     if(is_iPad()) {
         $('.toolbox').css('padding-top',10).css('margin-left',10);
@@ -108,4 +108,8 @@ function flashChat() {
 
 function saveImage() {
     window.open($('.canvas').get(0).toDataURL(),'_blank');
+}
+
+function backgroundClick() {
+    askForBackground();
 }

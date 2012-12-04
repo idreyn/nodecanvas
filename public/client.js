@@ -9,6 +9,7 @@ var sock, // Socket object used by socket.io
     color, // Current pen color
     size, // Current pen size
     tool, // Current drawing tool
+    backgroundURL, // The URL for the current background
     actionBuffer, // Contains mouse events to be sent to server every BUFFER_INTERVAL
     BUFFER_INTERVAL = 10, // (ms) Amount of time to wait between outgoing action buffer updates
     clientData, // Contains data about connected clients
@@ -85,7 +86,8 @@ function ready() {
     sock.on('clear-in', clearIn);
     sock.on('chat-in', chatIn);
     sock.on('client-list-in', clientListIn);
-    sock.on('room-expired',roomExpired);
+    sock.on('room-expired', roomExpired);
+    sock.on('background-in', backgroundIn)
     $('.status').html('Connecting...');
 };
 
@@ -397,5 +399,44 @@ function ajax(method,data,callback) {
     $.post('/ajax',data,function(d,r,o) {
         if(callback) callback(o.responseText);
     });
+}
+
+// Chooses the URL for a background
+function askForBackground() {
+    if(!isConnected) return;
+    if(!backgroundURL || backgroundURL.charAt(0) == '#') {
+        var url = prompt('Enter the URL for your background:');
+        var img = new Image();
+        img.onload = function() {
+            pushBackground("url('"+url+"')");  
+        };
+        img.onerror = function() {
+            alert("That doesn't seem to be a valid URL!");  
+        };
+        img.src = url;
+    } else {
+        // Ask to clear the background
+        if(confirm('Are you sure you want to reset the background?')) {
+            pushBackground('#FFF');
+        }
+    }
+}
+
+// Pushes a new background to the server
+function pushBackground(url) {
+    sock.emit('background-out',{url:url});
+}
+
+// Called when a new background is pushed from the server
+function backgroundIn(d) {
+    console.log('bkgIn',d);
+    if(!d || !d.url) return;
+    backgroundURL = d.url;
+    $('.canvas').css('background',backgroundURL);
+    if(backgroundURL.charAt(0) == '#') {
+        $('.background-button').removeClass('button-pushed');
+    } else {
+        $('.background-button').addClass('button-pushed');
+    }
 }
 

@@ -61,6 +61,7 @@ var rooms = {
             buffers: [],
             chat: [],
             name: name,
+            background: '#FFF',
             clients: {},
             password: password,
             getSockets: function() {
@@ -111,6 +112,7 @@ io.sockets.on('connection', function(sock)
             // Send them chat logs and current canvas
             sock.emit('multi-buffer-in',getRoom().buffers);
             sock.emit('multi-chat-in',getRoom().chat);
+            sock.emit('background-in',{url:getRoom().background});
             // Send them the client list and update it every five seconds
             setInterval(pushClients,5000);
             pushClients();
@@ -156,8 +158,14 @@ io.sockets.on('connection', function(sock)
     // Called when a client disconnects
     sock.on('disconnect', function(obj) {
         console.log('Client has disconnected');
-        if(getRoom().clients[sock.id]) delete getRoom().clients[sock.id]; 
+        if(getRoom() && getRoom().clients[sock.id]) delete getRoom().clients[sock.id]; 
     });
+    
+    // Called when a client changes the background URL
+    sock.on('background-out', function(obj) {
+        getRoom().background = obj.url;
+        getRoom().getSockets().emit('background-in',obj);
+    })
 });
 
 // Test to see if a client has authenticated successfully

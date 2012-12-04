@@ -80,3 +80,8 @@
 {"ts":1351824746142,"patch":[[{"diffs":[[0,"mage() {\n   "],[1," window.location ="],[0," $('.canvas'"]],"start1":3061,"start2":3061,"length1":24,"length2":42}]],"length":3124,"saved":false}
 {"ts":1351824785513,"patch":[[{"diffs":[[0,"oDataURL"],[1,"()"],[0,";\n}"]],"start1":3113,"start2":3113,"length1":11,"length2":13}]],"length":3126,"saved":false}
 {"ts":1351824835143,"patch":[[{"diffs":[[0,"dow."],[-1,"location = "],[1,"open("],[0,"$('."]],"start1":3077,"start2":3077,"length1":19,"length2":13},{"diffs":[[0,"ataURL()"],[1,",'_blank')"],[0,";\n}"]],"start1":3109,"start2":3109,"length1":11,"length2":21}]],"length":3130,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1354591425450,"patch":[[{"diffs":[[0,") {\n"],[-1,"            console.log('setCurrent',button);\n"],[0,"    "]],"start1":1028,"start2":1028,"length1":54,"length2":8}]],"length":3084,"saved":false}
+{"ts":1354591452931,"patch":[[{"diffs":[[0,"Image);\n    "],[1,"$('.background-button').click(backgroundClick);"],[0,"\n    // Make"]],"start1":1590,"start2":1590,"length1":24,"length2":71}]],"length":3131,"saved":false}
+{"ts":1354591534711,"patch":[[{"diffs":[[0,"'_blank');\n}"],[1,"\n\nfunction backgroundClick() {\n    setBackground(prompt('Enter the URL of your background:'));\n}"]],"start1":3119,"start2":3119,"length1":12,"length2":108}]],"length":3227,"saved":false}
+{"ts":1354591596513,"patch":[[{"diffs":[[0,"und("],[-1,"prompt('Enter the URL of your background:')"],[0,");\n}"]],"start1":3176,"start2":3176,"length1":51,"length2":8}]],"length":3184,"saved":false}
+{"ts":1354591620982,"patch":[[{"diffs":[[0,") {\n    "],[-1,"set"],[1,"askFor"],[0,"Backgrou"]],"start1":3158,"start2":3158,"length1":19,"length2":22}]],"length":3187,"saved":false}
